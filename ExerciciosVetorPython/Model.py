@@ -25,24 +25,49 @@ class Model:
                 maior = maior + 1
         print("A média da turma é: {}\nHouveram {} notas acima da média.".format(media, maior))
 
-    def exercicio03(self):
+    def exercicio02(self):
         q = []
-        menor = 0
-        for i in range(3):
-            print("Informe o {}° número:".format(i+1))
+        maior = 0
+        posicao = 0
+        for i in range(20):
+            print("Informe o {}° número:".format(i + 1))
             num = int(input())
             while num < 0:
                 if num < 0:
                     print("Valor inválido.")
-                    print("Informe o {}° número:".format(i+1))
+                    print("Informe o {}° número:".format(i + 1))
                     num = int(input())
             if i == 0:
-                        menor = num
+                maior = num
+                posicao = i + 1
+            else:
+                if num < maior:
+                    maior = num
+                    posicao = i + 1
+            q.append(num)
+        print("O maior número digitado foi: {}\nSua posição é: {}".format(maior, posicao))
+
+    def exercicio03(self):
+        q = []
+        menor = 0
+        posicao = 0
+        for i in range(20):
+            print("Informe o {}° número:".format(i + 1))
+            num = int(input())
+            while num < 0:
+                if num < 0:
+                    print("Valor inválido.")
+                    print("Informe o {}° número:".format(i + 1))
+                    num = int(input())
+            if i == 0:
+                menor = num
+                posicao = i + 1
             else:
                 if num < menor:
-                            menor = num
+                    menor = num
+                    posicao = i + 1
             q.append(num)
-        print("A menor valor de Q é: {}\nSua posição é: (nao sei >:( ))".format(menor))
+        print("O menor número digitado foi: {}\nSua posição é: {}".format(menor, posicao))
 
     #exercicico 05:
     def preencherVetor(self, num):
@@ -52,7 +77,7 @@ class Model:
             for i in range(len(self.vetor)):
                 print("{}º número: {}\n".format(i + 1, self.vetor[i]))
     
-    def ordenarDecrescente(self):
+    def ordenarInverso(self):
             self.vetor.sort(reverse=True)
             self.visualizarVetor()
 
@@ -86,7 +111,45 @@ class Model:
                 acimaMedia = acimaMedia + 1
         print("Menor temperatura do ano: {}°\nMaior temperatura do ano: {}°\nMédia anual: {}°\nDias com temperatura acima da média: {} dias".format(menor, maior, media, acimaMedia))
 
-    #exercicio 9:
+    #exercicio08 e 09:
     def ordenarCrescente(self):
             self.vetor.sort()
             self.visualizarVetor()
+
+    #exercicio10:
+
+
+    def exercicio11(self):
+        v1 = []
+        guardarNum1 = 0
+        posicaoV1 = 0
+        v2 = []
+        guardarNum2 = 0
+        posicaoV2 = 0
+        compararValores = 0
+        for i in range(15):
+            print("Informe o {}° número:".format(i+1))
+            num1 = int(input())
+            if i == 0:
+                guardarNum1 = num1
+                posicaoV1 = i + 1
+            else:
+                if num1 == guardarNum1:
+                    guardarNum1 = num1
+                    posicaoV1 = i + 1
+            v1.append(num1)
+        for j in range(15):
+            print("Informe o {}° número:".format(j+1))
+            num2 = int(input())
+            if j == 0:
+                guardarNum2 = num2
+                posicaoV2 = j + 1
+            else:
+                if num2 == guardarNum2:
+                    guardarNum2 = num2
+                    posicaoV2 = j + 1
+            v2.append(num2)
+        for x in range(15):
+            if guardarNum1 == guardarNum2 and posicaoV1 == posicaoV2:
+                compararValores = compararValores + 1
+        print("Houveram {} números iguais nas mesmas posições.".format(compararValores))
